@@ -215,10 +215,13 @@ if (merged_df is not None) and (vessel_df is not None):
         )
 
     def highlight_cols(x):
-        color = 'background-color: #b6fcb6'
+        color_green = 'background-color: #b6fcb6'
+        color_orange = 'background-color: #ffe5b4'  # Light pastel orange
         df = pd.DataFrame('', index=x.index, columns=x.columns)
         if 'Parent_Reading' in df.columns:
-            df['Parent_Reading'] = color
+            df['Parent_Reading'] = color_green
+        if 'Running Hours Average (/24 Hours)' in df.columns:
+            df['Running Hours Average (/24 Hours)'] = color_orange
         return df
 
     def safe_two_decimals(x):
